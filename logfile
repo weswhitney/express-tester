@@ -1,0 +1,7 @@
+LOG:  database system was shut down at 2016-08-11 22:04:02 MDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "Whitney" does not exist
+ERROR:  syntax error at or near "OP" at character 1
+STATEMENT:  OP DATABASE IF EXISTS puppies;
