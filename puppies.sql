@@ -1,4 +1,4 @@
-OP DATABASE IF EXISTS puppies;
+DROP DATABASE IF EXISTS puppies;
 CREATE DATABASE puppies;
 
 \c puppies;

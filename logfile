@@ -5,3 +5,17 @@ LOG:  autovacuum launcher started
 FATAL:  database "Whitney" does not exist
 ERROR:  syntax error at or near "OP" at character 1
 STATEMENT:  OP DATABASE IF EXISTS puppies;
+ERROR:  unrecognized configuration parameter "databases"
+STATEMENT:  show databases;
+ERROR:  unrecognized configuration parameter "tables"
+STATEMENT:  show tables;
+ERROR:  syntax error at or near "?" at character 1
+STATEMENT:  ?
+	q
+	/dt
+	q
+	exit
+	q;
+ERROR:  syntax error at or near "q" at character 1
+STATEMENT:  q
+	exit;
