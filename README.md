@@ -1,5 +1,7 @@
 # express-tester
 
-## npm install
+clone repo
 
-## postgres db
+npm install
+
+uses postgres db
