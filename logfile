@@ -19,3 +19,28 @@ STATEMENT:  ?
 ERROR:  syntax error at or near "q" at character 1
 STATEMENT:  q
 	exit;
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  column "breed" of relation "kitties" does not exist at character 28
+STATEMENT:  INSERT INTO kitties (name, breed, age, sex)
+	    VALUES ('Snowball', 'presian', 11, 'F');
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  invalid input syntax for integer: "NaN" at character 31
+STATEMENT:  select * from pups where id = 'NaN'
+ERROR:  invalid input syntax for integer: "NaN" at character 31
+STATEMENT:  select * from pups where id = 'NaN'
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  relation "pups" does not exist at character 15
+STATEMENT:  select * from pups where id = 'NaN'
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties
+ERROR:  relation "kitties" does not exist at character 15
+STATEMENT:  select * from kitties

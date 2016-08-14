@@ -6,7 +6,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://localhost:5432/puppies';
+var connectionString = 'postgres://localhost:5432/kittens';
 var db = pgp(connectionString);
 
 // add query functions
@@ -91,11 +91,26 @@ function removePuppy(req, res, next) {
     });
 }
 
+function getAllKittens(req, res, next) {
+  db.any('select * from kitties')
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ALL kitties'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
 
 module.exports = {
   getAllPuppies: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
-  removePuppy: removePuppy
+  removePuppy: removePuppy,
+  getAllKittens: getAllKittens
 };

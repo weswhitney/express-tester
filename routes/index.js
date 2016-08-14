@@ -14,4 +14,6 @@ router.post('/api/puppies', db.createPuppy);
 router.put('/api/puppies/:id', db.updatePuppy);
 router.delete('/api/puppies/:id', db.removePuppy);
 
+router.get('/api/kittens', db.getAllKittens);
+
 module.exports = router;
