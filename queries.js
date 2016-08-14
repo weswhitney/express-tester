@@ -106,11 +106,100 @@ function getAllKittens(req, res, next) {
     });
 }
 
+
+// start blog functions
+function getAllPosts(req, res, next) {
+  db.any('select * from posts')
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ALL posts'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getSinglePost(req, res, next) {
+  var postID = parseInt(req.params.id);
+  db.one('select * from posts where id = $1', postID)
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE post'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function createPost(req, res, next) {
+  req.body.title = parseInt(req.body.age);
+  db.none('insert into post(title, body)' +
+      'values(${title}, ${body})',
+    req.body)
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Inserted one post'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function updatePost(req, res, next) {
+  db.none('update posts set name=$1, breed=$2 where id=$5',
+    [req.body.title, req.body.body, parseInt(req.body.title),
+      req.body.sex, parseInt(req.params.id)])
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Updated post'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function removePost(req, res, next) {
+  var postID = parseInt(req.params.id);
+  db.result('delete from posts where id = $1', postID)
+    .then(function (result) {
+      /* jshint ignore:start */
+      res.status(200)
+        .json({
+          status: 'success',
+          message: `Removed ${result.rowCount} post`
+        });
+      /* jshint ignore:end */
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
 module.exports = {
   getAllPuppies: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
   removePuppy: removePuppy,
-  getAllKittens: getAllKittens
+  getAllKittens: getAllKittens,
+  //start blog
+  getAllPosts: getAllPosts,
+  getSinglePost: getSinglePost,
+  createPost: createPost,
+  updatePost: updatePost,
+  removePost: removePost,
 };
