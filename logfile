@@ -44,3 +44,12 @@ ERROR:  relation "kitties" does not exist at character 15
 STATEMENT:  select * from kitties
 ERROR:  relation "kitties" does not exist at character 15
 STATEMENT:  select * from kitties
+FATAL:  database "posts.sql" does not exist
+ERROR:  syntax error at or near ")" at character 86
+STATEMENT:  CREATE TABLE posts (
+	    ID SERIAL PRIMARY KEY,
+	    title VARCHAR,
+	    body VARCHAR,
+	);
+ERROR:  relation "posts" does not exist at character 15
+STATEMENT:  select * from posts
