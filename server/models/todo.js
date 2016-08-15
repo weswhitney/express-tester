@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     }
-    UserId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

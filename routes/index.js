@@ -1,4 +1,5 @@
 var express = require('express');
+var models = require('../server/models/index');
 var router = express.Router();
 
 var db = require('../queries');
@@ -7,6 +8,14 @@ var db = require('../queries');
 //router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express' });
 //});
+
+router.post('/users', function(req, res) {
+  models.User.create({
+    email: req.body.email
+  }).then(function(user) {
+    res.json(user);
+  });
+});
 
 router.get('/api/puppies', db.getAllPuppies);
 router.get('/api/puppies/:id', db.getSinglePuppy);
