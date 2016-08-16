@@ -22,7 +22,9 @@
   },
   "description": "clone repo",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/weswhitney/express-tester.git"
