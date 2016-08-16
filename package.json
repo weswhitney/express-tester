@@ -19,5 +19,18 @@
     "sequelize": "^3.12.2",
     "sequelize-cli": "^2.1.0",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "description": "clone repo",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weswhitney/express-tester.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weswhitney/express-tester/issues"
+  },
+  "homepage": "https://github.com/weswhitney/express-tester#readme"
 }
